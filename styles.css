@@ -1,0 +1,35 @@
+body {
+  height: 100vh;
+}
+
+#blue {
+  height: 100vh;
+}
+
+#orange {
+  height: 40vh;
+}
+
+#green {
+  height: 60vh;
+}
+
+#red {
+  height: 25vh;
+  -webkit-animation-delay: 1.5s;
+}
+
+#usern {
+  height: 12.5vh;
+  margin-left: 352px;
+  padding-top: 30px;
+}
+
+#passw {
+  height: 12.5vh;
+  margin-left: 352px;
+}
+
+h1.post {
+  font-weight: 100;
+}
