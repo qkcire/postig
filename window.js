@@ -11,13 +11,13 @@ $(function () {
     $("#orange").fadeTo(500, 0.55);
     $("#green").fadeTo(500,0.55);
 
-    // all this works to activate loader
+    // all this works to activate loader!
     $("#preload").addClass("active"); //
     $("#loader").css("pointer-events", "auto"); //
     $("#spinner").css("visibility", "visible"); //
     console.log($("#user_name").val());
     console.log($("#pass_word").val());
-    
+
     // don't need to explicity disable user & pword since loader takes precedence
     // on screen and disables inherently
     // $("#user_name").prop("disabled", true);
