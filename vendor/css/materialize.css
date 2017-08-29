@@ -7690,7 +7690,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .spinner-blue,
 .spinner-blue-only {
-  border-color: #4285f4;
+  /*border-color: #4285f4;*/
+  border-color: #795548; /* color of login loader */
 }
 
 .spinner-red,
@@ -8015,7 +8016,7 @@ input[type=range]:focus::-ms-fill-upper {
 .circle-clipper .circle {
   width: 200%;
   height: 100%;
-  border-width: 3px;
+  border-width: 7px; /* made login loader wider */
   /* STROKEWIDTH */
   border-style: solid;
   border-color: inherit;
