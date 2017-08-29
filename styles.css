@@ -2,6 +2,20 @@ body {
   height: 100vh;
 }
 
+#loader {
+  pointer-events: none; /* disable mouse from sensing loader */
+  height: 100vh; /* expands loader to the size of the window */
+  position: absolute; /* positions loader to the top*/
+}
+
+#preload {
+  margin-top: 40vh;
+}
+
+#spinner {
+  visibility: hidden;
+}
+
 #blue {
   height: 100vh;
 }
