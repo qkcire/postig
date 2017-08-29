@@ -9,11 +9,11 @@ body {
 }
 
 #preload {
-  margin-top: 40vh;
+  margin-top: 40vh; /* loader position */
 }
 
 #spinner {
-  visibility: hidden;
+  visibility: hidden; /* start loader hidden */
 }
 
 #blue {
