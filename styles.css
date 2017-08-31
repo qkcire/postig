@@ -44,6 +44,31 @@ body {
   margin-left: 352px;
 }
 
+#left {
+  height: 100vh;
+}
+
+#right {
+  height: 100vh;
+}
+
+#label {
+  height: 100vh;
+  /*padding-top: 10vh;*/
+}
+
+#sender {
+  height: 40vh;
+}
+
+#receiver {
+  height: 60vh;
+}
+
+#return {
+  height: 0vh;
+}
+
 h1.post {
   font-weight: 100;
 }
