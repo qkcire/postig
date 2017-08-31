@@ -58,15 +58,15 @@ body {
 }
 
 #sender {
-  height: 40vh;
+  height: 35vh;
 }
 
 #receiver {
-  height: 60vh;
+  height: 65vh;
 }
 
 #return {
-  height: 0vh;
+  height: 2vh;
 }
 
 h1.post {
