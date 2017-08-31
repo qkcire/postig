@@ -17,13 +17,24 @@ $(function () {
     $("#spinner").css("visibility", "visible"); //
     console.log($("#user_name").val());
     console.log($("#pass_word").val());
+    setTimeout(transition_login_page, 1100);
 
     // don't need to explicity disable user & pword since loader takes precedence
     // on screen and disables inherently
     // $("#user_name").prop("disabled", true);
     // $("#pass_word").prop("disabled", true);
   });
+  function transition_login_page() {
+    $("#red").removeClass("fadeIn");
+    $("#red").css("-webkit-animation-delay", "0s");
+    $("#red").addClass("fadeOut");
+    setTimeout(transition_post, 300);
+  }
 
+  function transition_post() {
+    $("#post").removeClass("fadeInUp");
+    $("#post").addClass("fadeOutUp");
+  }
   //clear input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
     $("#user_name").val(null).blur();
