@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  overflow: hidden;
 }
 
 #loader {
@@ -61,8 +62,14 @@ body {
   height: 35vh;
 }
 
+#send, #reci {
+  color: #64b5f6;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
 #receiver {
-  height: 65vh;
+  height: 20vh;
 }
 
 #return {
