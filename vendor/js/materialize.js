@@ -4476,9 +4476,29 @@ if (jQuery) {
         hiddenDiv.css('overflow-wrap', 'normal').css('white-space', 'pre');
       }
 
-      hiddenDiv.text($textarea.val() + '\n');
-      var content = hiddenDiv.html().replace(/\n/g, '<br>');
-      hiddenDiv.html(content);
+      //attempt to limit auto resize to a certain num of lines HERE!!!
+
+      // THIS WORKS HOWEVER there is a bug
+      //   the unbind keydown needs to be done sooner
+      $(this).on('keydown', function(e) {
+        if(e.isDefaultPrevented()) {
+          $(this).unbind('keydown');
+        }
+        var maxLines = 4;
+        if (e.keyCode == 13 && $("br").length >= maxLines) {
+          e.preventDefault();
+          hiddenDiv.text($textarea.val());
+          hiddenDiv.html(hiddenDiv.html());
+        } else {
+          hiddenDiv.text($textarea.val() + '\n');
+          var content = hiddenDiv.html().replace(/\n/g, '<br>');
+          hiddenDiv.html(content);
+        }
+      })
+
+      // hiddenDiv.text($textarea.val() + '\n');
+      // var content = hiddenDiv.html().replace(/\n/g, '<br>');
+      // hiddenDiv.html(content);
 
       // When textarea is hidden, width goes crazy.
       // Approximate with half of window size
