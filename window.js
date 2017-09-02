@@ -28,10 +28,6 @@ $(function () {
       $("#roq").load("main-page.html");
     }, 5200);
 
-    //now we want to empty out old html and load in new html
-
-
-
   });
   function transition_page() {
     transition_login_creds();
