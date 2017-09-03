@@ -59,7 +59,7 @@ body {
 }
 
 #sender {
-  height: 35vh;
+  height: 30.3vh;
 }
 
 #send, #reci, #weight label, #print-btns label {
@@ -108,14 +108,14 @@ h1.post {
 #pound-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 460px;
+  top: 423px;
   padding-left: 74px;
 }
 
 #ounce-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 460px;
+  top: 423px;
   padding-left: 85px;
 }
 
@@ -133,6 +133,6 @@ h1.post {
 
 #scale-img svg {
   position: absolute;
-  top: 454px;
+  top: 417px;
   right: 31px;
 }
