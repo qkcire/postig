@@ -6373,7 +6373,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 .input-field {
   position: relative;
   /*margin-top: 1rem;*/
-  margin-bottom: 200px;
+  /*margin-bottom: 200px;*/
   margin-left: 10px;
   width: 230px;
 }
@@ -6413,14 +6413,18 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
   -webkit-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
   text-align: initial;
-  -webkit-transform: translateY(12px);
-          transform: translateY(12px);
+  /*-webkit-transform: translateY(12px);
+          transform: translateY(12px);*/
+  -webkit-transform: translateY(-14px);
+          transform: translateY(-14px);
   pointer-events: none;
 }
 
 .input-field label:not(.label-icon).active {
-  -webkit-transform: translateY(-14px) scale(0.8);
-          transform: translateY(-14px) scale(0.8);
+  /*-webkit-transform: translateY(-14px) scale(0.8);
+          transform: translateY(-14px) scale(0.8);*/
+  -webkit-transform: translateY(-14px);
+          transform: translateY(-14px);
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
 }

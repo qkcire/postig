@@ -1,6 +1,10 @@
 // Run this function after the page has loaded
 $(function () {
 
+  // reduces performance; come back to it later
+  // $(document).ready(function() {
+  //   $('select').material_select();
+  // });
   //Retreive login credentials
   $("#login-btn").on('click', function() {
 
@@ -27,10 +31,6 @@ $(function () {
     setTimeout(function() {
       $("#roq").load("main-page.html");
     }, 5200);
-
-    //now we want to empty out old html and load in new html
-
-
 
   });
   function transition_page() {
