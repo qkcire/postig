@@ -62,14 +62,14 @@ body {
   height: 35vh;
 }
 
-#send, #reci {
+#send, #reci, #weight label, #print-btns label {
   color: #64b5f6;
   font-weight: 500;
   font-size: 1.05rem;
 }
 
 #receiver {
-  height: 20vh;
+  height: 10vh;
 }
 
 #return {
@@ -78,4 +78,61 @@ body {
 
 h1.post {
   font-weight: 100;
+}
+
+#weight label, #print-btns label {
+  font-size: 1.05rem;
+  padding-right: 187px;
+  padding-left: 23px;
+}
+
+#weight input {
+  text-align: center;
+}
+
+#something-lb {
+  /* length of the bottom border line*/
+  width: 100px;
+  right: 25px;
+}
+
+#something-oz {
+  right: 30px;
+  width: 100px;
+}
+
+#weight {
+  padding-top: 68px;
+}
+
+#pound-field h6 {
+  opacity: 0.35;
+  position: absolute;
+  top: 460px;
+  padding-left: 74px;
+}
+
+#ounce-field h6 {
+  opacity: 0.35;
+  position: absolute;
+  top: 460px;
+  padding-left: 85px;
+}
+
+#print-btns {
+  padding-top: 50px;
+}
+
+#postig-left {
+  padding-left: 21px;
+}
+
+#sample-right {
+  padding-left: 40px;
+}
+
+#scale-img svg {
+  position: absolute;
+  top: 454px;
+  right: 31px;
 }
