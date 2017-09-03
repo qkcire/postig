@@ -1,6 +1,10 @@
 // Run this function after the page has loaded
 $(function () {
 
+  // reduces performance; come back to it later
+  // $(document).ready(function() {
+  //   $('select').material_select();
+  // });
   //Retreive login credentials
   $("#login-btn").on('click', function() {
 
