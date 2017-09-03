@@ -4480,6 +4480,8 @@ if (jQuery) {
 
       // THIS WORKS HOWEVER there is a bug
       //   the unbind keydown needs to be done sooner
+      //   reduces performance; it logs EVERY SINGLE key event
+      //   - attempt to reduce only to enter keys
       $(this).on('keydown', function(e) {
         if(e.isDefaultPrevented()) {
           $(this).unbind('keydown');
