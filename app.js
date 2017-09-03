@@ -16,6 +16,11 @@ electron.app.once('ready', function () {
     show: false,
     // Don't allow the window to be resized.
     resizable: false,
+    // hide title bar (added drag feature in body [may have to add another rule
+    // -webkit-app-region: no-drag; (to the buttons)
+    //  but it looks like it works without it for now])
+    // also had to bring down the entire right hand down a couple of pixels
+    titleBarStyle: 'hidden-inset',
   })
 
   window.webContents.openDevTools()
