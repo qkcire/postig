@@ -1,23 +1,26 @@
 // Run this function after the page has loaded
 
 //var Stamps = null;
-$.getScript('./stamps.js', function() {
-  Stamps = new Stamps();
 
-  var t01 = performance.now();
-  Stamps.connect({isDev: true}).then(() => {
-    var t02 = performance.now();
-    activateCredField();
-    console.log("connect successful; time spent: " + (t02-t01));
-  }, (error) => {
-    console.log("an error occured.");
-    console.log("error: " + error);
-  });
-});
 
 $(function () {
-//  $.getScript('./stamps.js', function() {
-    //Stamps = new Stamps();
+    // hides user & pword until client is loaded
+    $("#green").hide();
+
+    $.getScript('./stamps.js', function() {
+      Stamps = new Stamps();
+
+      var t01 = performance.now();
+      Stamps.connect({isDev: true}).then(() => {
+        var t02 = performance.now();
+        console.log("client is ready to load info");
+        $("#green").show();
+        console.log("connect successful; time spent: " + (t02-t01));
+      }, (error) => {
+        console.log("an error occured.");
+        console.log("error: " + error);
+      });
+    });
 
     $("#login-btn").on('click', function() {
       //fade tags title and logins
@@ -139,7 +142,3 @@ $(function () {
     $("#pass_word").val(null).blur();
   });
 });
-
-function activateCredField() {
-  console.log("client is ready to load info");
-}
