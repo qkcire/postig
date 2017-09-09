@@ -49,13 +49,6 @@ $(function () {
         console.log(error);
       });
 
-      // Stamps.connect({isDev: true}).then(() => {
-      //   console.log("connect successful");
-      // }, (error) => {
-      //   console.log("an error occured.");
-      //   console.log("error: " + error);
-      // });
-
       if ($("#user_name").val(), $("#pass_word").val()) {
         /// load page
         setTimeout(function () {
