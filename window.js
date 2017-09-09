@@ -5,6 +5,8 @@
 
 $(function () {
     // hides user & pword until client is loaded
+    var on = true;
+    var off = false;
     $("#green").hide();
 
     $.getScript('./stamps.js', function() {
@@ -24,14 +26,16 @@ $(function () {
 
     $("#login-btn").on('click', function() {
       //fade tags title and logins
-      $("#orange").fadeTo(500, 0.55);
-      $("#green").fadeTo(500,0.55);
+      // $("#orange").fadeTo(500, 0.55);
+      // $("#green").fadeTo(500,0.55);
+      fadeLogin(on);
       console.log("stamps client: " + Stamps.client);
 
       //activate spinning loader  & disables buttons
-      $("#preload").addClass("active"); //
-      $("#loader").css("pointer-events", "auto"); //
-      $("#spinner").css("visibility", "visible"); //
+      // $("#preload").addClass("active"); //
+      // $("#loader").css("pointer-events", "auto"); //
+      // $("#spinner").css("visibility", "visible"); //
+      loadSpinner(on);
 
       //place credentials into a dictionary
       console.log("name: " + $("#user_name").val());
@@ -43,22 +47,40 @@ $(function () {
       };
 
       Stamps.auth(authCreds, true).then(() => {
+        // auth successful
+        // present transition into main page
+
         console.log("authentication success!");
+        if(Stamps.token) {
+          console.log("auth token is active");
+          console.log("token: " + Stamps.token);
+          setTimeout(function () {
+            transition_page();
+          }, 1500);
+          setTimeout(function() {
+            $("#roq").load("main-page.html");
+          }, 5200);
+        };
+
       }, (error) => {
+        // auth rejected
+        // remain in login page until log successful
         console.log("authentication error.");
+        loadSpinner(off);
+        fadeLogin(off);
         console.log(error);
       });
-
-      if ($("#user_name").val(), $("#pass_word").val()) {
-        /// load page
-        setTimeout(function () {
-          transition_page();
-        }, 1500);
-      };
-
-      setTimeout(function() {
-        $("#roq").load("main-page.html");
-      }, 5200);
+      //
+      // if ($("#user_name").val(), $("#pass_word").val()) {
+      //   /// load page
+      //   setTimeout(function () {
+      //     transition_page();
+      //   }, 1500);
+      // };
+      //
+      // setTimeout(function() {
+      //   $("#roq").load("main-page.html");
+      // }, 5200);
 
     });
 //  });
@@ -124,6 +146,31 @@ $(function () {
     $("#post").addClass("fadeOutUp");
     // setTimeout(transition_spin, 5500);
   };
+
+  function fadeLogin(value) {
+    if (value) {
+      $("#orange").fadeTo(500, 0.55);
+      $("#green").fadeTo(500,0.55);
+    } else {
+      // come back to this and figure out a better solution to transition/load
+      $("#orange").fadeTo(1,1);
+      $("#green").fadeTo(1,1);
+      // fadeIn() only works if divs are completely hidden
+      // $("#orange").fadeIn();
+      // $("#green").fadeIn();
+    }
+  }
+  function loadSpinner(value) {
+    if (value) {
+      $("#preload").addClass("active"); //
+      $("#loader").css("pointer-events", "auto"); //
+      $("#spinner").css("visibility", "visible"); //
+    } else {
+      $("#preload").removeClass("active"); //
+      $("#loader").css("pointer-events", "none"); //
+      $("#spinner").css("visibility", "hidden"); //
+    }
+  }
 
   // function transition_spin() {
   //   $("#spinner").addClass()
