@@ -20,7 +20,7 @@ electron.app.once('ready', function () {
     // -webkit-app-region: no-drag; (to the buttons)
     //  but it looks like it works without it for now])
     // also had to bring down the entire right hand down a couple of pixels
-    titleBarStyle: 'hidden-inset',
+    //titleBarStyle: 'hidden-inset',
   })
 
   window.webContents.openDevTools()
