@@ -48,6 +48,61 @@
         </div>
       </div>
 
+      <!-- label preview window -->
+      <div id="left" class="blue lighten-5 col s8">
+        <div id="label" class="valign-wrapper center-align col s8 offset-s2">
+          <img class="center-align animated fadeIn z-depth-5" src="./img/New-Label.jpg" style="width:384;height:576px" />
+        </div>
+      </div>
+      <!-- label inputs [addresses, weight, print] -->
+      <div id="right" class="col s4 animated fadeInRight">
+        <div id="sender" class="valign-wrapper row">
+          <div id="return" class="col s12 container">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <label id="send" for="textarea1">Sender</label>
+            </div>
+          </div>
+        </div>
+        <div id="receiver" class="row">
+          <div id="deliver" class="col s12 container">
+            <div class="input-field col s12">
+              <textarea id="textarea2" class="materialize-textarea"></textarea>
+              <label id="reci" for="textarea1">Receiver</label>
+            </div>
+          </div>
+        </div>
+        <div id="weight" class="row">
+          <label for="weight">Weight</label>
+          <div id="pound-field" class="col s3 offset-s1">
+            <div id="something-lb" class="input-field">
+              <input id="lb" type="text" class="validate" />
+            </div>
+            <h6>lb</h6>
+          </div>
+          <div id="ounce-field" class="col s3 offset-s1">
+            <div id="something-oz" cass="input-field">
+              <input id="oz" type="text" class="validate" />
+            </div>
+            <h6>oz</h6>
+          </div>
+          <div id="scale-img" class="col s3 offset-s1">
+            <svg class="" style="width:28px;height:28px" viewBox="0 0 24 24">
+              <path fill="#9e9e9e" d="M12,3C10.73,3 9.6,3.8 9.18,5H3V7H4.95L2,14C1.53,16 3,17 5.5,17C8,17 9.56,16 9,14L6.05,7H9.17C9.5,7.85 10.15,8.5 11,8.83V20H2V22H22V20H13V8.82C13.85,8.5 14.5,7.85 14.82,7H17.95L15,14C14.53,16 16,17 18.5,17C21,17 22.56,16 22,14L19.05,7H21V5H14.83C14.4,3.8 13.27,3 12,3M12,5A1,1 0 0,1 13,6A1,1 0 0,1 12,7A1,1 0 0,1 11,6A1,1 0 0,1 12,5M5.5,10.25L7,14H4L5.5,10.25M18.5,10.25L20,14H17L18.5,10.25Z" />
+            </svg>
+          </div>
+        </div>
+
+        <div id="print-btns" class="row">
+          <div id="postig-left" class="col s5">
+            <a id="postig-btn" class="waves-effect waves-light btn blue lighten-1">POSTIĠ</a>
+          </div>
+          <div id="sample-right" class="col s5">
+            <a id="sample-btn" class="waves-effect waves-light btn">SAMPLE</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Blue load spinner -->
       <div id="loader" class="col s12 center-align container-wide">
         <div id="preload" class="preloader-wrapper">
