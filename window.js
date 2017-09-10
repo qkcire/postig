@@ -8,6 +8,9 @@ $(function () {
     var on = true;
     var off = false;
     $("#green").hide();
+    $("#left").hide();
+    $("#right").hide();
+
 
     $.getScript('./stamps.js', function() {
       Stamps = new Stamps();
@@ -55,10 +58,13 @@ $(function () {
           console.log("auth token is active");
           console.log("token: " + Stamps.token);
           setTimeout(function () {
-            transition_page();
+            //transition_page();
+            transitionToMainScreen();
           }, 1500);
           setTimeout(function() {
-            $("#roq").load("main-page.html");
+            //$("#roq").load("main-page.html");
+            switchLoginDivsForMainDivs();
+            loadSpinner(off);
           }, 5200);
         };
 
@@ -129,6 +135,29 @@ $(function () {
   //   }, 5200);
   //
   // });
+
+  function transitionToMainScreen() {
+    fadeLoginCredentials();
+  };
+
+  function fadeLoginCredentials() {
+    $("#red").removeClass("fadeIn");
+    $("#red").css("-webkit-animation-delay", "0s");
+    $("#red").addClass("fadeOut");
+    setTimeout(fadePostigTitle, 1300);
+  }
+
+  function fadePostigTitle() {
+    $("#post").removeClass("fadeInUp");
+    $("#post").addClass("fadeOutUp");
+  }
+
+  function switchLoginDivsForMainDivs() {
+    $("#orange").hide();
+    $("#green").hide();
+    $("#left").show();
+    $("#right").show();
+  }
 
   function transition_page() {
     transition_login_creds();
