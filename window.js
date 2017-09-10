@@ -7,10 +7,8 @@ $(function () {
   $("#left").hide();
   $("#right").hide();
 
-
   $.getScript('./stamps.js', function() {
       Stamps = new Stamps();
-
       var t01 = performance.now();
       Stamps.connect({isDev: true}).then(() => {
         var t02 = performance.now();
@@ -21,8 +19,10 @@ $(function () {
         console.log("an error occured.");
         console.log("error: " + error);
       });
-    });
+  });
 
+  // login button
+  // validates credentials and transitions if successful
   $("#login-btn").on('click', function() {
     fadeLogin(on);
     console.log("stamps client: " + Stamps.client);
@@ -34,32 +34,37 @@ $(function () {
       username: $("#user_name").val(),
       password: $("#pass_word").val(),
     };
-    Stamps.auth(authCreds, true).then(() => {
-        // auth successful
-        // present transition into main page
 
+    Stamps.auth(authCreds, true).then(() => {
+      // auth successful
+      // present transition into main page
       console.log("authentication success!");
       if(Stamps.token) {
         console.log("auth token is active");
         console.log("token: " + Stamps.token);
         setTimeout(function () {
-            //transition_page();
           transitionToMainScreen();
         }, 1500);
         setTimeout(function() {
-            //$("#roq").load("main-page.html");
           switchLoginDivsForMainDivs();
           loadSpinner(off);
         }, 5200);
       };
     }, (error) => {
-        // auth rejected
-        // remain in login page until log successful
+      // auth rejected
+      // remain in login page until log successful
       console.log("authentication error.");
       loadSpinner(off);
       fadeLogin(off);
       console.log(error);
     });
+  });
+
+  // cancel button
+  // clears input data, sets to null, and unblurs fields on screen
+  $("#cancel-btn").on('click', function() {
+    $("#user_name").val(null).blur();
+    $("#pass_word").val(null).blur();
   });
 
   function transitionToMainScreen() {
@@ -85,24 +90,6 @@ $(function () {
     $("#right").show();
   };
 
-  function transition_page() {
-    transition_login_creds();
-    // setTimeout(transition_spin(), 400);
-  };
-
-  function transition_login_creds() {
-    $("#red").removeClass("fadeIn");
-    $("#red").css("-webkit-animation-delay", "0s");
-    $("#red").addClass("fadeOut");
-    setTimeout(transition_post, 1300);
-  };
-
-  function transition_post() {
-    $("#post").removeClass("fadeInUp");
-    $("#post").addClass("fadeOutUp");
-    // setTimeout(transition_spin, 5500);
-  };
-
   function fadeLogin(value) {
     if (value) {
       $("#orange").fadeTo(500, 0.55);
@@ -126,12 +113,7 @@ $(function () {
       $("#preload").removeClass("active"); //
       $("#loader").css("pointer-events", "none"); //
       $("#spinner").css("visibility", "hidden"); //
-    }
-  }
+    };
+  };
 
-  //clear input data, sets to null, and unblurs fields on screen
-  $("#cancel-btn").on('click', function() {
-    $("#user_name").val(null).blur();
-    $("#pass_word").val(null).blur();
-  });
 });
