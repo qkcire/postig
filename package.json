@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.7.5"
+    "electron": "^1.7.5",
+    "soap": "^0.21.0"
   }
 }

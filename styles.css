@@ -60,7 +60,7 @@ body {
 }
 
 #sender {
-  height: 32.3vh;
+  height: 38.3vh;
 }
 
 #send, #reci, #weight label, #print-btns label {
@@ -70,11 +70,12 @@ body {
 }
 
 #receiver {
-  height: 10vh;
+  height: 12vh;
 }
 
+/*  ACTIVE MODIFY */
 #return {
-  height: 2vh;
+  height: 10vh;
 }
 
 h1.post {
@@ -103,20 +104,21 @@ h1.post {
 }
 
 #weight {
-  padding-top: 68px;
+  /*height: 5vh;*/
+  padding-top: 85px;
 }
 
 #pound-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 448px;
+  top: 518px;
   padding-left: 74px;
 }
 
 #ounce-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 448px;
+  top: 518px;
   padding-left: 85px;
 }
 
@@ -134,6 +136,6 @@ h1.post {
 
 #scale-img svg {
   position: absolute;
-  top: 442px;
+  top: 512px;
   right: 31px;
 }
