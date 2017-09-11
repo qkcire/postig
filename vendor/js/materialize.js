@@ -4476,35 +4476,30 @@ if (jQuery) {
         hiddenDiv.css('overflow-wrap', 'normal').css('white-space', 'pre');
       }
 
-      //attempt to limit auto resize to a certain num of lines HERE!!!
-
-      // THIS WORKS HOWEVER there is a bug
-      //   the unbind keydown needs to be done sooner
-      //   reduces performance; it logs EVERY SINGLE key event
-      //   - attempt to reduce only to enter keys
-      $(this).on('keydown', function(e) {
-        if(e.isDefaultPrevented()) {
+      //limit auto resize to a certain num of lines HERE!!!
+      $(this).bind('change keydown', function(event) {
+        rows = 5;
+        var value = '';
+        var splitval = $textarea.val().split("\n");
+        if (splitval.length === 4 && event.keyCode == 13) {
+          event.preventDefault();
+        } else {
           $(this).unbind('keydown');
         }
-        var maxLines = 4;
-        if (e.keyCode == 13 && $("br").length >= maxLines) {
-          e.preventDefault();
-          hiddenDiv.text($textarea.val());
-          hiddenDiv.html(hiddenDiv.html());
-        } else {
-          hiddenDiv.text($textarea.val() + '\n');
-          var content = hiddenDiv.html().replace(/\n/g, '<br>');
-          hiddenDiv.html(content);
-        }
-      })
+        console.log("splitval: " + splitval);
 
-      // hiddenDiv.text($textarea.val() + '\n');
-      // var content = hiddenDiv.html().replace(/\n/g, '<br>');
-      // hiddenDiv.html(content);
+        for(var a = 0; a < rows && typeof splitval[a] != 'undefined'; a++) {
+          if(a > 0) {
+            value += "\n";
+          }
+          value += splitval[a];
+        }
+        //console.log("value: " + value);
+        $textarea.val(value);
+      });
 
       // When textarea is hidden, width goes crazy.
       // Approximate with half of window size
-
       if ($textarea.is(':visible')) {
         hiddenDiv.css('width', $textarea.width());
       } else {
