@@ -61,6 +61,7 @@ body {
 
 #sender {
   height: 38.3vh;
+  margin-bottom: -17px;
 }
 
 #send, #reci, #weight label, #print-btns label {
@@ -70,7 +71,8 @@ body {
 }
 
 #receiver {
-  height: 12vh;
+  height: 12vh; /*12vh;*/
+  margin-bottom: -20px;
 }
 
 /*  ACTIVE MODIFY */
@@ -82,10 +84,18 @@ h1.post {
   font-weight: 100;
 }
 
-#weight label, #print-btns label {
+#weight label {
   font-size: 1.05rem;
   padding-right: 187px;
   padding-left: 23px;
+}
+
+#print-btns label {
+  font-size: 1.05rem;
+  padding-right: 187px;
+  padding-left: 23px;
+  position: absolute;
+  top: 570px;
 }
 
 #weight input {
@@ -96,11 +106,13 @@ h1.post {
   /* length of the bottom border line*/
   width: 100px;
   right: 25px;
+  margin-top: 10px;
 }
 
 #something-oz {
   right: 30px;
   width: 100px;
+  margin-top: 10px;
 }
 
 #weight {
@@ -111,19 +123,19 @@ h1.post {
 #pound-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 518px;
+  top: 491px;
   padding-left: 74px;
 }
 
 #ounce-field h6 {
   opacity: 0.35;
   position: absolute;
-  top: 518px;
+  top: 491px;
   padding-left: 85px;
 }
 
 #print-btns {
-  padding-top: 60px;
+  padding-top: 85px;
 }
 
 #postig-left {
@@ -136,6 +148,11 @@ h1.post {
 
 #scale-img svg {
   position: absolute;
-  top: 512px;
+  top: 485px;
   right: 31px;
+}
+
+/* opacity of textarea placeholder */
+::-webkit-input-placeholder {
+  opacity: 0.50;
 }

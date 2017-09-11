@@ -6004,10 +6004,30 @@ label {
   color: #d1d1d1;
 }
 
+/* isolated both text and password from having their height
+*/
+input[type=text]:not(.browser-default),
+input[type=password]:not(.browser-default) {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem; // works great for 4 lines5.8rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 /* Text inputs */
 input:not([type]),
-input[type=text]:not(.browser-default),
-input[type=password]:not(.browser-default),
 input[type=email]:not(.browser-default),
 input[type=url]:not(.browser-default),
 input[type=time]:not(.browser-default),
@@ -6023,7 +6043,7 @@ textarea.materialize-textarea {
   border-bottom: 1px solid #9e9e9e;
   border-radius: 0;
   outline: none;
-  height: 3rem;
+  height: 4.6rem; // works great for 4 lines5.8rem;
   width: 100%;
   font-size: 1rem;
   margin: 0 0 20px 0;
