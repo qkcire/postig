@@ -77,6 +77,7 @@ $(function () {
     var splitAddressRaw = address.split("\n");
     var splitAddressRawLength = splitAddressRaw.length;
     var splitAddressCleaned = [];
+    // come back to this when ready to cleanseaddress using api
     // var verifyCleanedAddress = {
     //   FullName: "",
     //   Address1: "",
