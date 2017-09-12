@@ -60,12 +60,58 @@ $(function () {
     });
   });
 
+  $("#textarea2").on('blur', function() {
+    console.log("Sender area is being blurred");
+    console.log("Sender value: " + typeof($("#textarea1").val()));
+    verifyAddress($("#textarea2").val());
+  })
+
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
     $("#user_name").val(null).blur();
     $("#pass_word").val(null).blur();
   });
+
+  function verifyAddress(address) {
+    var splitAddressRaw = address.split("\n");
+    var splitAddressRawLength = splitAddressRaw.length;
+    var splitAddressCleaned = [];
+    // var verifyCleanedAddress = {
+    //   FullName: "",
+    //   Address1: "",
+    //   City: "",
+    //   State: "",
+    //   ZIPCode: ""
+    // };
+
+    // for length of 3 i.e.
+    //  full name
+    //  street
+    //  city state zip
+    for (var i = 0; i < splitAddressRawLength; i++) {
+      // if the loop has reached the city state zip element
+      if (i === (splitAddressRawLength - 1)) {
+        var cityStateZipRaw = splitAddressRaw[i].split(" ");
+        var cityStateZipClean = [];
+        cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        cityStateZipRaw.pop(); // zip popped; city state remain
+        cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        cityStateZipRaw.pop(); // state popped; city remain
+        // if the array is more than one (meaning a city with a space)
+        // join the names and push it, else push normally
+        if (cityStateZipRaw.length > 1) {
+          cityStateZipClean.push(cityStateZipRaw.join(" "));
+        } else {
+          cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        }
+        splitAddressCleaned.push(cityStateZipClean.reverse());
+      } else {
+        splitAddressCleaned.push(splitAddressRaw[i]);
+      };
+    };
+    console.log("Sender value split and cleaned: " + splitAddressCleaned);
+  };
 
   function transitionToMainScreen() {
     fadeLoginCredentials();
