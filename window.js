@@ -100,7 +100,7 @@ $(function () {
     var splitAddressRaw = address.split("\n");
     var splitAddressRawLength = splitAddressRaw.length;
     var splitAddressCleaned = [];
-    // come back to this when ready to cleanseaddress using api
+    // come back to this when ready to cleanseaddress using api -- DONE
     var cleanedAddress = {};
     for (var i = 0; i < splitAddressRawLength; i++) {
       // if the loop has reached the city state zip element
@@ -111,7 +111,7 @@ $(function () {
         cityStateZipRaw.pop(); // zip popped; city state remain
         cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
         cityStateZipRaw.pop(); // state popped; city remain
-        // if the array is more than one (meaning a city with a space)
+        // if the array is more than one (meaning a city with a space in name)
         // join the names and push it, else push normally
         if (cityStateZipRaw.length > 1) {
           cityStateZipClean.push(cityStateZipRaw.join(" "));
