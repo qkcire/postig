@@ -26,7 +26,7 @@ class Stamps {
       State: "CA",
       ZIPCode: "90249"
     };
-    this.to = {};
+    //this.to = null;
     this.rate = {
       FromZIPCode: "90249",
       ToZIPCode: "",
