@@ -20,23 +20,15 @@ class Stamps {
     this.Credentials = null;
     this.stampsApiUrl = null;
     this.from = {
-      FullName: "",
-      Address1: "",
-      Address2: "",
-      City: "",
-      State: "",
-      ZIPCode: ""
+      FullName: "Erick Quintanilla",
+      Address1: "1990 E Grand Ave",
+      City: "El Segundo",
+      State: "CA",
+      ZIPCode: "90249"
     };
-    this.to = {
-      FullName: "",
-      Address1: "",
-      Address2: "",
-      City: "",
-      State: "",
-      ZIPCode: ""
-    };
+    this.to = {};
     this.rate = {
-      FromZIPCode: "",
+      FromZIPCode: "90249",
       ToZIPCode: "",
       ServiceType: "US-PM",
       WeightLb: 0.0,
