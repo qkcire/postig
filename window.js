@@ -63,8 +63,17 @@ $(function () {
   $("#textarea2").on('blur', function() {
     console.log("Sender area is being blurred");
     console.log("Sender value: " + typeof($("#textarea1").val()));
-    verifyAddress($("#textarea2").val());
-  })
+    // determine whether or not address was verified, i.e. parsed & cleansed
+    verifyAddress($("#textarea2").val()).then((verified) => {
+      console.log("Yay, it worked!");
+      console.log("contents of Stamps.to: ");
+      for (var i in Stamps.to) {
+        console.log(i + ": " + Stamps.to[i]);
+      }
+    }, (unverified) => {
+      console.log("Boo, it failed.");
+    });
+  });
 
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
@@ -72,24 +81,27 @@ $(function () {
     $("#user_name").val(null).blur();
     $("#pass_word").val(null).blur();
   });
-
+  // return true if verify/cleanse was successful, else false if error
   function verifyAddress(address) {
+    var receiver = cleanAddress(address);
+    return new Promise((resolve, reject) => {
+      Stamps.request('CleanseAddress', {'Address': receiver}).then((result) => {
+        console.log("cleanse success!");
+        Stamps.to = result.Address;
+        resolve(true);
+      }, (error) => {
+        console.log("cleanse failed.");
+        reject(false);
+      });
+    });
+  };
+
+  function cleanAddress(address) {
     var splitAddressRaw = address.split("\n");
     var splitAddressRawLength = splitAddressRaw.length;
     var splitAddressCleaned = [];
     // come back to this when ready to cleanseaddress using api
-    // var verifyCleanedAddress = {
-    //   FullName: "",
-    //   Address1: "",
-    //   City: "",
-    //   State: "",
-    //   ZIPCode: ""
-    // };
-
-    // for length of 3 i.e.
-    //  full name
-    //  street
-    //  city state zip
+    var cleanedAddress = {};
     for (var i = 0; i < splitAddressRawLength; i++) {
       // if the loop has reached the city state zip element
       if (i === (splitAddressRawLength - 1)) {
@@ -111,7 +123,25 @@ $(function () {
         splitAddressCleaned.push(splitAddressRaw[i]);
       };
     };
-    console.log("Sender value split and cleaned: " + splitAddressCleaned);
+    cleanedAddress["FullName"] = splitAddressCleaned[0];
+    if (splitAddressCleaned.length === 4) {
+      cleanedAddress["Company"] = splitAddressCleaned[1];
+      cleanedAddress["Address1"] = splitAddressCleaned[2];
+      cleanedAddress["City"] = splitAddressCleaned[3][0];
+      cleanedAddress["State"] = splitAddressCleaned[3][1];
+      cleanedAddress["ZIPCode"] = splitAddressCleaned[3][2];
+    } else {
+      cleanedAddress["Address1"] = splitAddressCleaned[1];
+      cleanedAddress["City"] = splitAddressCleaned[2][0];
+      cleanedAddress["State"] = splitAddressCleaned[2][1];
+      cleanedAddress["ZIPCode"] = splitAddressCleaned[2][2];
+    }
+    // console.log("Sender value split and cleaned: " + splitAddressCleaned);
+    // console.log("splitAddressCleaned in dict: ");
+    // for (var i in cleanedAddress) {
+    //   console.log( i + ": " + cleanedAddress[i]);
+    // }
+    return cleanedAddress;
   };
 
   function transitionToMainScreen() {
