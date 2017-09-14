@@ -70,6 +70,7 @@ $(function () {
       for (var i in Stamps.to) {
         console.log(i + ": " + Stamps.to[i]);
       }
+      console.log("Stamps.rate['ToZIPCode']: " + Stamps.rate["ToZIPCode"]);
     }, (unverified) => {
       console.log("Boo, it failed.");
     });
@@ -83,6 +84,9 @@ $(function () {
   $("#oz").on('blur', function() {
     console.log("Ounce value: " + $("#oz").val());
     Stamps.rate['WeightOz'] = parseFloat($("#oz").val());
+    for (var i in Stamps.rate) {
+      console.log(i + ": " + Stamps.rate[i]);
+    }
   });
 
   // cancel button
@@ -98,6 +102,7 @@ $(function () {
       Stamps.request('CleanseAddress', {'Address': receiver}).then((result) => {
         console.log("cleanse success!");
         Stamps.to = result.Address;
+        Stamps.rate["ToZIPCode"] = Stamps.to["ZIPCode"];
         resolve(true);
       }, (error) => {
         console.log("cleanse failed.");
