@@ -32,6 +32,7 @@ class Stamps {
       ToZIPCode: "",
       ServiceType: "US-PM",
       WeightLb: 0.0,
+      WeightOz: 0.0,
       PackageType: "Package",
       ShipDate: new Date().toISOString().split('T')[0]
     };
