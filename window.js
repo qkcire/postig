@@ -75,6 +75,16 @@ $(function () {
     });
   });
 
+  $("#lb").on('blur', function() {
+    console.log("Pounds value: " + $("#lb").val());
+    Stamps.rate['WeightLb'] = parseFloat($("#lb").val());
+  });
+
+  $("#oz").on('blur', function() {
+    console.log("Ounce value: " + $("#oz").val());
+    Stamps.rate['WeightOz'] = parseFloat($("#oz").val());
+  });
+
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
