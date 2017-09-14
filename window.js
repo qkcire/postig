@@ -67,7 +67,6 @@ $(function () {
     verifyAddress($("#textarea2").val()).then((verified) => {
       console.log("Yay, it worked!");
       console.log("contents of Stamps.to: ");
-      //delete Stamps.to['Address2'];
       for (var i in Stamps.to) {
         console.log(i + ": " + Stamps.to[i]);
       }
