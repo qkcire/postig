@@ -89,6 +89,12 @@ $(function () {
     }
   });
 
+  $("#postig-btn").on('click', function() {
+    for (var i in Stamps) {
+      console.log(i + ": " + Stamps[i]);
+    }
+  });
+
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
