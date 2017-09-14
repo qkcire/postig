@@ -67,6 +67,7 @@ $(function () {
     verifyAddress($("#textarea2").val()).then((verified) => {
       console.log("Yay, it worked!");
       console.log("contents of Stamps.to: ");
+      //delete Stamps.to['Address2'];
       for (var i in Stamps.to) {
         console.log(i + ": " + Stamps.to[i]);
       }
@@ -95,6 +96,20 @@ $(function () {
     }
   });
 
+  $("#sample-btn").on('click', function() {
+    Stamps.request('CreateIndicium', {
+      'Rate': Stamps.rate,
+      'From': Stamps.from,
+      'To': Stamps.to,
+      'SampleOnly': true,
+    }, true).then((label) => {
+      console.log("sample label: " + label.URL);
+    }, (error) => {
+      console.log("Error occured.");
+      console.log(error);
+    })
+  });
+
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
@@ -107,6 +122,20 @@ $(function () {
     return new Promise((resolve, reject) => {
       Stamps.request('CleanseAddress', {'Address': receiver}).then((result) => {
         console.log("cleanse success!");
+        console.log("removing nulled values in result.Address");
+        for (var i in result.Address) {
+          if (result.Address[i] === null || result.Address[i] === undefined) {
+            delete result.Address[i];
+          }
+        }
+        //standardizing address casing -- doesn't work; it errors when being matched with cleansed address
+        // console.log("modify case of address: ");
+        // for (var i in result.Address) {
+        //   if (i === "State") {
+        //     continue;
+        //   }
+        //   result.Address[i] = toTitleCase(result.Address[i]);
+        // }
         Stamps.to = result.Address;
         Stamps.rate["ToZIPCode"] = Stamps.to["ZIPCode"];
         resolve(true);
@@ -212,6 +241,14 @@ $(function () {
       $("#loader").css("pointer-events", "none"); //
       $("#spinner").css("visibility", "hidden"); //
     };
+  };
+
+  // courtesy of:
+  // https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   };
 
 });
