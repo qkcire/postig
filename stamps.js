@@ -24,7 +24,7 @@ class Stamps {
       Address1: "1990 E Grand Ave",
       City: "El Segundo",
       State: "CA",
-      ZIPCode: "90249"
+      ZIPCode: "90245"
     };
     this.rate = {
       FromZIPCode: "90249",
