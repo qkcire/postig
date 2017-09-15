@@ -90,9 +90,17 @@ $(function () {
   });
 
   $("#postig-btn").on('click', function() {
-    for (var i in Stamps) {
-      console.log(i + ": " + Stamps[i]);
-    }
+    Stamps.request('CreateIndicium', {
+      'Rate': Stamps.rate,
+      'From': Stamps.from,
+      'To': Stamps.to,
+      'SampleOnly': false,
+    }, true).then((label) => {
+      console.log("actual label: " + label.URL);
+    }, (error) => {
+      console.log("Error occured.");
+      console.log(error);
+    });
   });
 
   $("#sample-btn").on('click', function() {
@@ -106,7 +114,7 @@ $(function () {
     }, (error) => {
       console.log("Error occured.");
       console.log(error);
-    })
+    });
   });
 
   // cancel button
