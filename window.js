@@ -1,6 +1,8 @@
 // Run this function after the page has loaded
 $(function () {
   // hides user & pword until client is loaded
+  var printer = require('printer');
+  var download = require('image-downloader');
   var on = true;
   var off = false;
   $("#green").hide();
@@ -95,7 +97,13 @@ $(function () {
       'From': Stamps.from,
       'To': Stamps.to,
       'SampleOnly': false,
+      'ImageType': 'Png',
     }, true).then((label) => {
+      download.image({url: label.URL, dest: './img/live.png'}).then(({filename, image}) => {
+        console.log("File saved to: " + filename);
+        console.log("Printting file.");
+        printer.printFile({filename: filename});
+      });
       console.log("actual label: " + label.URL);
     }, (error) => {
       console.log("Error occured.");
@@ -109,8 +117,13 @@ $(function () {
       'From': Stamps.from,
       'To': Stamps.to,
       'SampleOnly': true,
+      'ImageType': 'Png',
     }, true).then((label) => {
-      console.log("sample label: " + label.URL);
+      download.image({url: label.URL, dest: './img/sample.png'}).then(({filename, image}) => {
+        console.log("File saved to: " + filename);
+        console.log("Printting file.");
+        printer.printFile({filename: filename});
+      });
     }, (error) => {
       console.log("Error occured.");
       console.log(error);
