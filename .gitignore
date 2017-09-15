@@ -84,3 +84,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# label images
+*.png
