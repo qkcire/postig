@@ -4,17 +4,25 @@
   "description": "lightweight shipping labeler",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron . --enable-logging --remote-debugging-port=9222",
+    "dev": "NODE_ENV='development' npm run start",
+    "dist": "build -owl --x64 && build -wl --ia32",
+    "build": "build",
+    "reload": "live-reload app --port 35729",
+    "electron-rebuild": "electron-rebuild --force --module_dir . -w node-hid ",
+    "postinstall": "npm run electron-rebuild"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "electron": "^1.7.5",
     "image-downloader": "^3.2.2",
+    "node-hid": "^0.5.7",
     "printer": "^0.2.2",
     "soap": "^0.21.0"
   },
   "devDependencies": {
+    "electron-builder": "^19.27.7",
     "electron-rebuild": "^1.6.0"
   }
 }
