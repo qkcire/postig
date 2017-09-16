@@ -278,6 +278,8 @@ $(function () {
   webScale.on('change:weight', function(ounces) {
     var pounds = roundTowardsZero(ounces/16);
     var remainderOunces = (Math.round(ounces % 16 * 10)/10).toFixed(1);
+    $("#lb").val(pounds);
+    $("#oz").val(remainderOunces);
     console.log(pounds + " lbs. " + remainderOunces + " oz.");
     //$('#temp').text(pounds + " lbs. " + remainderOunces + " oz.");
   });
@@ -287,13 +289,15 @@ $(function () {
   });
 
   webScale.on('connected', function() {
+    $("svg").css("fill-opacity", "1");
     console.log("Scale online.");
   });
 
   webScale.once('disconnected', function() {
     console.log("Scale disconnected. Try running as root.");
     webScale.on('disconnected', function() {
-      console.log("Scale disconnected. Reconnecting...");
+      $("svg").css("fill-opacity", "0.25");
+      //console.log("Scale disconnected. Reconnecting...");
     });
   });
 
