@@ -10,6 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^1.7.5",
+    "image-downloader": "^3.2.2",
+    "printer": "^0.2.2",
     "soap": "^0.21.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.6.0"
   }
 }

@@ -1,6 +1,8 @@
 // Run this function after the page has loaded
 $(function () {
   // hides user & pword until client is loaded
+  var printer = require('printer');
+  var download = require('image-downloader');
   var on = true;
   var off = false;
   $("#green").hide();
@@ -60,12 +62,157 @@ $(function () {
     });
   });
 
+  $("#textarea2").on('blur', function() {
+    console.log("Sender area is being blurred");
+    console.log("Sender value: " + typeof($("#textarea1").val()));
+    // determine whether or not address was verified, i.e. parsed & cleansed
+    verifyAddress($("#textarea2").val()).then((verified) => {
+      console.log("Yay, it worked!");
+      console.log("contents of Stamps.to: ");
+      for (var i in Stamps.to) {
+        console.log(i + ": " + Stamps.to[i]);
+      }
+      console.log("Stamps.rate['ToZIPCode']: " + Stamps.rate["ToZIPCode"]);
+    }, (unverified) => {
+      console.log("Boo, it failed.");
+    });
+  });
+
+  $("#lb").on('blur', function() {
+    console.log("Pounds value: " + $("#lb").val());
+    Stamps.rate['WeightLb'] = parseFloat($("#lb").val());
+  });
+
+  $("#oz").on('blur', function() {
+    console.log("Ounce value: " + $("#oz").val());
+    Stamps.rate['WeightOz'] = parseFloat($("#oz").val());
+    for (var i in Stamps.rate) {
+      console.log(i + ": " + Stamps.rate[i]);
+    }
+  });
+
+  $("#postig-btn").on('click', function() {
+    Stamps.request('CreateIndicium', {
+      'Rate': Stamps.rate,
+      'From': Stamps.from,
+      'To': Stamps.to,
+      'SampleOnly': false,
+      'ImageType': 'Png',
+    }, true).then((label) => {
+      download.image({url: label.URL, dest: './img/live.png'}).then(({filename, image}) => {
+        console.log("File saved to: " + filename);
+        console.log("Printting file.");
+        printer.printFile({filename: filename});
+      });
+      console.log("actual label: " + label.URL);
+    }, (error) => {
+      console.log("Error occured.");
+      console.log(error);
+    });
+  });
+
+  $("#sample-btn").on('click', function() {
+    Stamps.request('CreateIndicium', {
+      'Rate': Stamps.rate,
+      'From': Stamps.from,
+      'To': Stamps.to,
+      'SampleOnly': true,
+      'ImageType': 'Png',
+    }, true).then((label) => {
+      download.image({url: label.URL, dest: './img/sample.png'}).then(({filename, image}) => {
+        console.log("File saved to: " + filename);
+        console.log("Printting file.");
+        printer.printFile({filename: filename});
+      });
+    }, (error) => {
+      console.log("Error occured.");
+      console.log(error);
+    });
+  });
+
   // cancel button
   // clears input data, sets to null, and unblurs fields on screen
   $("#cancel-btn").on('click', function() {
     $("#user_name").val(null).blur();
     $("#pass_word").val(null).blur();
   });
+  // return true if verify/cleanse was successful, else false if error
+  function verifyAddress(address) {
+    var receiver = cleanAddress(address);
+    return new Promise((resolve, reject) => {
+      Stamps.request('CleanseAddress', {'Address': receiver}).then((result) => {
+        console.log("cleanse success!");
+        console.log("removing nulled values in result.Address");
+        for (var i in result.Address) {
+          if (result.Address[i] === null || result.Address[i] === undefined) {
+            delete result.Address[i];
+          }
+        }
+        //standardizing address casing -- doesn't work; it errors when being matched with cleansed address
+        // console.log("modify case of address: ");
+        // for (var i in result.Address) {
+        //   if (i === "State") {
+        //     continue;
+        //   }
+        //   result.Address[i] = toTitleCase(result.Address[i]);
+        // }
+        Stamps.to = result.Address;
+        Stamps.rate["ToZIPCode"] = Stamps.to["ZIPCode"];
+        resolve(true);
+      }, (error) => {
+        console.log("cleanse failed.");
+        reject(false);
+      });
+    });
+  };
+
+  function cleanAddress(address) {
+    var splitAddressRaw = address.split("\n");
+    var splitAddressRawLength = splitAddressRaw.length;
+    var splitAddressCleaned = [];
+    // come back to this when ready to cleanseaddress using api -- DONE
+    var cleanedAddress = {};
+    for (var i = 0; i < splitAddressRawLength; i++) {
+      // if the loop has reached the city state zip element
+      if (i === (splitAddressRawLength - 1)) {
+        var cityStateZipRaw = splitAddressRaw[i].split(" ");
+        var cityStateZipClean = [];
+        cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        cityStateZipRaw.pop(); // zip popped; city state remain
+        cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        cityStateZipRaw.pop(); // state popped; city remain
+        // if the array is more than one (meaning a city with a space in name)
+        // join the names and push it, else push normally
+        if (cityStateZipRaw.length > 1) {
+          cityStateZipClean.push(cityStateZipRaw.join(" "));
+        } else {
+          cityStateZipClean.push(cityStateZipRaw[cityStateZipRaw.length - 1]);
+        }
+        splitAddressCleaned.push(cityStateZipClean.reverse());
+      } else {
+        splitAddressCleaned.push(splitAddressRaw[i]);
+      };
+    };
+    cleanedAddress["FullName"] = splitAddressCleaned[0];
+    if (splitAddressCleaned.length === 4) {
+      cleanedAddress["Company"] = splitAddressCleaned[1];
+      cleanedAddress["Address1"] = splitAddressCleaned[2];
+      cleanedAddress["City"] = splitAddressCleaned[3][0];
+      cleanedAddress["State"] = splitAddressCleaned[3][1];
+      cleanedAddress["ZIPCode"] = splitAddressCleaned[3][2];
+    } else {
+      cleanedAddress["Address1"] = splitAddressCleaned[1];
+      cleanedAddress["City"] = splitAddressCleaned[2][0];
+      cleanedAddress["State"] = splitAddressCleaned[2][1];
+      cleanedAddress["ZIPCode"] = splitAddressCleaned[2][2];
+    }
+    // console.log("Sender value split and cleaned: " + splitAddressCleaned);
+    // console.log("splitAddressCleaned in dict: ");
+    // for (var i in cleanedAddress) {
+    //   console.log( i + ": " + cleanedAddress[i]);
+    // }
+    return cleanedAddress;
+  };
 
   function transitionToMainScreen() {
     fadeLoginCredentials();
@@ -114,6 +261,14 @@ $(function () {
       $("#loader").css("pointer-events", "none"); //
       $("#spinner").css("visibility", "hidden"); //
     };
+  };
+
+  // courtesy of:
+  // https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
   };
 
 });
