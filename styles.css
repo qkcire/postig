@@ -153,10 +153,6 @@ h1.post {
   fill-opacity: 1;
 }
 
-/*#scale-img path {
-  opacity: 0.35;
-}*/
-
 /* opacity of textarea placeholder */
 ::-webkit-input-placeholder {
   opacity: 0.50;
