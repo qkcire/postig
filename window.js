@@ -3,6 +3,7 @@ $(function () {
   // hides user & pword until client is loaded
   var printer = require('printer');
   var download = require('image-downloader');
+  var WebScale = require('./webscale');
   var on = true;
   var off = false;
   $("#green").hide();
@@ -269,6 +270,39 @@ $(function () {
     return str.replace(/\w\S*/g, function(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
+  };
+
+  // scale test
+  var webScale = new WebScale();
+
+  webScale.on('change:weight', function(ounces) {
+    var pounds = roundTowardsZero(ounces/16);
+    var remainderOunces = (Math.round(ounces % 16 * 10)/10).toFixed(1);
+    console.log(pounds + " lbs. " + remainderOunces + " oz.");
+    //$('#temp').text(pounds + " lbs. " + remainderOunces + " oz.");
+  });
+
+  webScale.on('error', function(error) {
+    console.error("Oh noes.", error);
+  });
+
+  webScale.on('connected', function() {
+    console.log("Scale online.");
+  });
+
+  webScale.once('disconnected', function() {
+    console.log("Scale disconnected. Try running as root.");
+    webScale.on('disconnected', function() {
+      console.log("Scale disconnected. Reconnecting...");
+    });
+  });
+
+  function roundTowardsZero(number) {
+    if (number >= 0) {
+      return Math.floor(number);
+    } else {
+      return Math.ceil(number);
+    }
   };
 
 });
