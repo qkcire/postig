@@ -4,7 +4,7 @@
   "description": "lightweight shipping labeler",
   "main": "app.js",
   "scripts": {
-    "start": "electron . --enable-logging --remote-debugging-port=9222",
+    "start": "electron .",
     "dev": "NODE_ENV='development' npm run start",
     "dist": "build -owl --x64 && build -wl --ia32",
     "build": "build",
