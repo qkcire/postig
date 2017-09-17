@@ -1,3 +1,8 @@
+// Courtesy of:
+// - https://github.com/vfrbgt/node-stamps-api
+// License:
+// - https://github.com/vfrbgt/node-stamps-api/blob/master/LICENSE.md
+
 let soap = require('soap');
 
 const STAMPS_API_URL = "https://swsim.stamps.com/swsim/swsimv62.asmx?wsdl";
@@ -19,6 +24,7 @@ class Stamps {
   constructor(dev = false) {
     this.Credentials = null;
     this.stampsApiUrl = null;
+    // add instance variable to standardize rate
     this.rate = {
       FromZIPCode: "",
       ToZIPCode: "",
