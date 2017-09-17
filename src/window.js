@@ -285,14 +285,17 @@ $(function () {
   };
 
   // courtesy of:
-  // https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
+  // - https://stackoverflow.com/questions/4878756/how-to-capitalize-first-letter-of-each-word-like-a-2-word-city
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   };
 
-  // scale test
+  // Courtesy of:
+  // - https://github.com/Aldaviva/WebScale
+  // license:
+  // - https://github.com/Aldaviva/webscale/blob/master/LICENSE
   var webScale = new WebScale();
 
   webScale.on('change:weight', function(ounces) {
