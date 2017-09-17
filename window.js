@@ -63,11 +63,24 @@ $(function () {
     });
   });
 
+  $("#textarea1").on('blur', function() {
+    verifyAddress($("#textarea1").val(), "send").then((verified) => {
+      console.log("Yay, it worked!");
+      console.log("contents of Stamps.to: ");
+      for (var i in Stamps.from) {
+        console.log(i + ": " + Stamps.from[i]);
+      }
+      console.log("Stamps.rate['FromZIPCode']: " + Stamps.rate["FromZIPCode"]);
+    }, (unverified) => {
+      console.log("Boo, it failed.");
+    });
+  });
+
   $("#textarea2").on('blur', function() {
     console.log("Sender area is being blurred");
     console.log("Sender value: " + typeof($("#textarea1").val()));
     // determine whether or not address was verified, i.e. parsed & cleansed
-    verifyAddress($("#textarea2").val()).then((verified) => {
+    verifyAddress($("#textarea2").val(), "recieve").then((verified) => {
       console.log("Yay, it worked!");
       console.log("contents of Stamps.to: ");
       for (var i in Stamps.to) {
@@ -138,14 +151,14 @@ $(function () {
     $("#pass_word").val(null).blur();
   });
   // return true if verify/cleanse was successful, else false if error
-  function verifyAddress(address) {
+  function verifyAddress(address, type) {
     var receiver = cleanAddress(address);
     return new Promise((resolve, reject) => {
       Stamps.request('CleanseAddress', {'Address': receiver}).then((result) => {
         console.log("cleanse success!");
         console.log("removing nulled values in result.Address");
         for (var i in result.Address) {
-          if (result.Address[i] === null || result.Address[i] === undefined) {
+          if (result.Address[i] === null || result.Address[i] === 'undefined') {
             delete result.Address[i];
           }
         }
@@ -157,8 +170,15 @@ $(function () {
         //   }
         //   result.Address[i] = toTitleCase(result.Address[i]);
         // }
-        Stamps.to = result.Address;
-        Stamps.rate["ToZIPCode"] = Stamps.to["ZIPCode"];
+        if (type === "send") {
+          Stamps.from = result.Address;
+          Stamps.rate["FromZIPCode"] = Stamps.from["ZIPCode"];
+        }
+        else {
+          Stamps.to = result.Address;
+          Stamps.rate["ToZIPCode"] = Stamps.to["ZIPCode"];
+        }
+
         resolve(true);
       }, (error) => {
         console.log("cleanse failed.");
