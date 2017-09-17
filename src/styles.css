@@ -1,0 +1,159 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+  -webkit-app-region: drag;
+}
+
+#loader {
+  pointer-events: none; /* disable mouse from sensing loader */
+  height: 100vh; /* expands loader to the size of the window */
+  position: absolute; /* positions loader to the top*/
+}
+
+#preload {
+  margin-top: 40vh; /* loader position */
+}
+
+#spinner {
+  visibility: hidden; /* start loader hidden */
+}
+
+#blue {
+  height: 100vh;
+}
+
+#orange {
+  height: 40vh;
+}
+
+#green {
+  height: 60vh;
+}
+
+#red {
+  height: 25vh;
+  -webkit-animation-delay: 1.5s;
+}
+
+#usern {
+  height: 12.5vh;
+  margin-left: 352px;
+  padding-top: 30px;
+}
+
+#passw {
+  height: 12.5vh;
+  margin-left: 352px;
+}
+
+#left {
+  height: 100vh;
+}
+
+#right {
+  height: 100vh;
+}
+
+#label {
+  height: 100vh;
+  /*padding-top: 10vh;*/
+}
+
+#sender {
+  height: 38.3vh;
+  margin-bottom: -17px;
+}
+
+#send, #reci, #weight label, #print-btns label {
+  color: #64b5f6;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+#receiver {
+  height: 12vh; /*12vh;*/
+  margin-bottom: -20px;
+}
+
+/*  ACTIVE MODIFY */
+#return {
+  height: 10vh;
+}
+
+h1.post {
+  font-weight: 100;
+}
+
+#weight label {
+  font-size: 1.05rem;
+  padding-right: 187px;
+  padding-left: 23px;
+}
+
+#print-btns label {
+  font-size: 1.05rem;
+  padding-right: 187px;
+  padding-left: 23px;
+  position: absolute;
+  top: 570px;
+}
+
+#weight input {
+  text-align: center;
+}
+
+#something-lb {
+  /* length of the bottom border line*/
+  width: 100px;
+  right: 25px;
+  margin-top: 10px;
+}
+
+#something-oz {
+  right: 30px;
+  width: 100px;
+  margin-top: 10px;
+}
+
+#weight {
+  /*height: 5vh;*/
+  padding-top: 85px;
+}
+
+#pound-field h6 {
+  opacity: 0.35;
+  position: absolute;
+  top: 491px;
+  padding-left: 74px;
+}
+
+#ounce-field h6 {
+  opacity: 0.35;
+  position: absolute;
+  top: 491px;
+  padding-left: 85px;
+}
+
+#print-btns {
+  padding-top: 85px;
+}
+
+#postig-left {
+  padding-left: 21px;
+}
+
+#sample-right {
+  padding-left: 40px;
+}
+
+#scale-img svg {
+  position: absolute;
+  top: 485px;
+  right: 31px;
+  fill-opacity: 1;
+}
+
+/* opacity of textarea placeholder */
+::-webkit-input-placeholder {
+  opacity: 0.50;
+}
