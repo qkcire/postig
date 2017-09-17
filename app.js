@@ -23,7 +23,7 @@ electron.app.once('ready', function () {
     //titleBarStyle: 'hidden-inset',
   })
 
-  window.webContents.openDevTools()
+  // window.webContents.openDevTools()
 
   // Load a URL in the window to the local index.html path
   window.loadURL(url.format({
