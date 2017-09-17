@@ -150,6 +150,7 @@ h1.post {
   position: absolute;
   top: 485px;
   right: 31px;
+  fill-opacity: 1;
 }
 
 /* opacity of textarea placeholder */
