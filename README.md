@@ -11,7 +11,7 @@ The Minimalist's shipping platform.
 ![main screen](./docs/images/main.png?raw=true)
 
 # Getting Started
-### Credential Requirements
+### API Credential Requirements
 In order to use Postiġ you must obtain staging credentials to access Stamps.com's API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/). Once your request for access has been processed, you will be given a unique `username`, `password`, and `IntegrationID`. The `username` and `password` will be used to log into Postiġ on launch, however, you will need to take your `IntegrationID` and assign it to the `id` inside `src/window.js` beforehand.
 
 Once you have completed the above, clone this repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
@@ -23,7 +23,7 @@ npm start
 ```
 
 # Developer Notes
-The purpose of this project was to try my hand at building an entire application from scratch using the Stamps.com API - with additional intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Keeping that in mind, Postiġ is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I will continue to add/fix over time (display account information, add postage funds, logging print history, etc.) but I am definitely proud of the progress!
+The purpose of this project was to try my hand at building an entire application from scratch using the Stamps.com API. This also came with the added intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Both those goals were reached, however, Postiġ is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I would like to see add/fix over time (display account information, add postage funds, logging print history, etc.), but my goal is to keep it nice and slender.
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
