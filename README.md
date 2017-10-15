@@ -18,7 +18,7 @@ npm start
 
 # Developer Notes
 ### Beware: bugs a-plenty!
-Postiġ is no where near complete. There are plenty of features that I will continue to add over time (display account information, add postage funds, logging print history, etc.). However, its core functionalities such as obtaining user information and printing a physical label works.
+Postiġ is no where near complete. There are plenty of features that I will continue to add over time (display account information, add postage funds, logging print history, etc.). With that said, its core functionalities such as obtaining user information and printing a physical label works without much flaw. That is if you have a DYMO 4XL directly connected and ready to go.
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
