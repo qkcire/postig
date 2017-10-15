@@ -5,7 +5,7 @@ Your one-stop shop for all your domestic package needs. Postig utilizes Stamps.c
 ![main screen](./docs/images/main.png?raw=true)
 
 # Quick Start
-#### Credential Requirements
+### Credential Requirements
 In order to use Postig you must obtain staging credentials to access the Stamps.com API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/).
 
 Once you have your API credentials, clone this repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
