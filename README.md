@@ -4,7 +4,7 @@ Your one-stop shop for all your domestic package needs! With its sleek and minim
 
 ![main screen](./docs/images/main.png?raw=true)
 
-# Get Started
+# Getting Started
 ### Credential Requirements
 In order to use Postig you must obtain staging credentials to access the Stamps.com API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/).
 
