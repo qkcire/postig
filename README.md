@@ -6,9 +6,9 @@ Your one-stop shop for all your domestic package needs! With its sleek and minim
 
 # Getting Started
 ### Credential Requirements
-In order to use Postig you must obtain staging credentials to access the Stamps.com API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/).
+In order to use Postig you must obtain staging credentials to access the Stamps.com API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/). You will receive an `IntegrationID` along with a `username` and `password`. The `username` and `password` will be used to log into the Postig as per normal procedure, however, you will need to take your `IntegrationID` and assign it to the `id` variable inside `src/window.js`.
 
-Once you have your API credentials, clone this repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
+Once you have completed the above, clone this repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
 ```
 git clone https://github.com/qkcire/postig
 cd postig
