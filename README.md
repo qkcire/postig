@@ -15,3 +15,6 @@ cd postig
 npm install
 npm start
 ```
+
+# License
+[GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
