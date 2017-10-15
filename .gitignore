@@ -89,3 +89,4 @@ Temporary Items
 # *.png
 img/placeholder.png
 img/sample.png
+img/*
