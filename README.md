@@ -17,7 +17,9 @@ npm start
 ```
 
 # Developer Notes
-Postiġ is no where near complete. There are plenty of features that I will continue to add over time (display account information, add postage funds, logging print history, etc.). However, its core functionalities such as obtaining user information and printing a physical label works. Beware though: bugs a-plenty!
+### Beware: bugs a-plenty!
+
+Postiġ is no where near complete. There are plenty of features that I will continue to add over time (display account information, add postage funds, logging print history, etc.). However, its core functionalities such as obtaining user information and printing a physical label works.
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
