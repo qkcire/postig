@@ -1,7 +1,7 @@
 ![postig logo](./docs/images/title.png?raw=true)
 
 <p align="center">
-The Minimalist's shipping solution.
+The Minimalist's shipping platform.
 </p>
 
 ***
@@ -24,7 +24,7 @@ npm start
 
 # Developer Notes
 ### Beware: bugs a-plenty!
-Postiġ is no where near complete. There are plenty of wrinkles to be ironed out as well as features that I will continue to add/fix over time (display account information, add postage funds, logging print history, etc.). With that said, its core functionalities such as obtaining user information and printing a physical label *should* work.
+Postiġ is no where near complete. The purpose of this project was to try my hand out at building an entire application from scratch using the Stamps.com platform while also incorporating two of the main USB devices used in the process: a printer and a scale. There are plenty of wrinkles to be ironed out as well as features that I will continue to add/fix over time (display account information, add postage funds, logging print history, etc.). With that said, its core functionalities such as obtaining user information and printing a physical label *should* work.
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
