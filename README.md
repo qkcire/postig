@@ -16,7 +16,7 @@ npm install
 npm start
 ```
 
-# Notes
+# Developer Notes
 Postig is no where near complete. There are plenty of features that I will continue to add over time however its main functionalities of obtaining user information and printing a physical label works!
 
 # License
