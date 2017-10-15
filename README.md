@@ -1,7 +1,7 @@
 ![postig logo](./docs/images/title.png?raw=true)
 
 <p align="center">
-The solution for all your domestic package needs!
+The solution to all your domestic package needs!
 </p>
 
 ***
