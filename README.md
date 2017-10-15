@@ -1,14 +1,14 @@
 ![postig logo](./docs/images/title.png?raw=true)
 
-Your one-stop shop for all your domestic package needs. Postig utilizes Stamps.com's API to generate a standard 4x6 shipping label which then prints directly to any standard thermal printer. With its sleek and minimalist design, Postig allows you to focus on efficiently processing your orders while not having to worry about the intricacies of the shipment process.
+Your one-stop shop for all your domestic package needs. Postig utilizes Stamps.com's Web Service API to generate a standard 4x6 shipping label which then prints directly to any standard thermal printer. With its sleek and minimalist design, Postig allows you to focus on efficiently processing your orders while not having to worry about the intricacies of the shipment process.
 
 ![main screen](./docs/images/main.png?raw=true)
 
 # Quick Start
-### Login Credential Requirement
-In order to access the Stamps.com API you must register and sign up for staging credentials.
- 
-Clone repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
+### Credential Requirements
+In order to use this app, you must obtain credentials to access the Stamps.com API. You can obtain these credentials by registering for a [free developer account](http://developer.stamps.com/developer/register/).
+
+Once you have your API credentials, clone this repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
 ```
 git clone https://github.com/qkcire/postig
 cd postig
