@@ -1,6 +1,6 @@
 ![postig logo](./docs/images/title.png?raw=true)
 
-Your one-stop shop for all your domestic package needs! With its sleek and minimalist design, Postiġ allows you to focus on efficiently processing your orders while not having to worry about the intricacies of the shipment process. It utilizes Stamps.com's Web Service API to generate a standard 4x6 shipping label which prints directly to a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com or Onyx 5lb. scale eliminating the need of inserting each value manually.
+Your one-stop shop for all your domestic package needs! With its sleek, minimalist design, Postiġ allows you to focus on efficiently processing your orders while not having to worry about the intricacies of the shipment process. It utilizes Stamps.com's Web Service API to generate a standard 4x6 shipping label which prints directly to a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com or Onyx 5lb. scale eliminating the need of inserting each value manually.
 
 ![main screen](./docs/images/main.png?raw=true)
 
