@@ -17,7 +17,7 @@ npm start
 ```
 
 # Developer Notes
-Postig is no where near complete. There are plenty of features that I will continue to add over time (display account balance, log print history, etc.) however its main functionalities such as obtaining user information and printing a physical label works!
+Postig is no where near complete. There are plenty of features that I will continue to add over time (display account information, logging activity history, etc.) however its main functionalities such as obtaining user information and printing physical labels works!
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
