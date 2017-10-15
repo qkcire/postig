@@ -6,7 +6,7 @@ The Minimalist's shipping platform.
 
 ***
 
-**Postiġ** allows you to focus on processing your orders while not having to worry about the many intricacies of the shipment process. It utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which you can then print using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
+**Postiġ** is the one-stop shop for all your domestic package needs. It allows you to focus on processing your orders while not having to worry about the many intricacies of the shipment process. It utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which you can then print using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
 
 ![main screen](./docs/images/main.png?raw=true)
 
