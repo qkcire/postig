@@ -1,4 +1,7 @@
-//webscale class and methods
+// Courtesy of:
+// - https://github.com/Aldaviva/WebScale
+// license:
+// - https://github.com/Aldaviva/webscale/blob/master/LICENSE
 
 var HID = require('node-hid');
 var util = require('util');
