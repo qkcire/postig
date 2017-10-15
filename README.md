@@ -5,7 +5,7 @@ Your one-stop shop for all your domestic package needs. Postig utilizes Stamps.c
 ![main screen](./docs/images/main0.png?raw=true)
 
 # Quick Start
-Clone repository and install all dependencies via npm:
+Clone repository and install all dependencies via [`npm`](https://docs.npmjs.com/):
 ```
 git clone https://github.com/qkcire/postig
 cd postig
