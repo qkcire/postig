@@ -21,6 +21,10 @@ Once you have completed the steps above, clone this repository and install all d
 git clone https://github.com/qkcire/postig
 cd postig
 npm install
+```
+
+After installing the dependencies, you may start the app:
+```
 npm start
 ```
 
