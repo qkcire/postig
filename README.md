@@ -6,9 +6,10 @@ The Minimalist's shipping platform.
 
 ***
 
-**Postiġ** was built to eliminate many of the small burdens and hidden intricacies of the shipping process, allowing you to focus on what's really important: processing your orders in the most efficient and cost-effective manner possible. * *The app takes advantage of today's most popular Machine Learning libraries to determine the best means of travel/shipment while keeping the price low at all cost*. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is then printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
+**Postiġ** was built to eliminate many of the small burdens and hidden intricacies of the shipping process, allowing you to focus on what's really important: processing your orders in the most efficient and cost-effective manner possible. *The app takes advantage of today's most popular Machine Learning libraries to determine the best means of travel/shipment while keeping the price low at all cost*. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is then printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
 
-* work in progress
+*ML is a work in progress*
+
 
 ![main screen](./docs/images/main.png?raw=true)
 
