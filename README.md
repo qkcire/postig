@@ -6,7 +6,7 @@ The Minimalist's shipping platform.
 
 ***
 
-**Postiġ** is a desktop app built to eliminate the burdens and intricacies of the shipment process, allowing you to focus on what's really important: processing your orders in the most efficient manner possible. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - removing the need of manually inserting the weight of your package.
+**Postiġ** is a desktop app built to eliminate the burdens and intricacies of the shipment process, allowing you to focus on what's truly important: processing your orders in the most efficient manner possible. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - removing the need of manually inserting the weight of your package.
 
 
 ![main screen](./docs/images/main.png?raw=true)
