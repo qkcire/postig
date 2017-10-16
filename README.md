@@ -6,9 +6,7 @@ The Minimalist's shipping platform.
 
 ***
 
-**Postiġ** was built to eliminate many of the small burdens and hidden intricacies of the shipping process, allowing you to focus on what's really important: processing your orders in the most efficient and cost-effective manner possible. *The app takes advantage of today's most popular Machine Learning libraries to determine the best means of travel/shipment while keeping the price low at all cost*. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is then printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
-
-*ML is a work in progress*
+**Postiġ** was built to eliminate many of the small burdens and hidden intricacies of the shipping process, allowing you to focus on what's really important: processing your orders in the most efficient and cost-effective manner possible. Postiġ utilizes the Stamps.com Web Service API to generate a standard 4x6 shipping label which is then printed using a DYMO 4XL thermal printer. Postiġ also accepts input directly from a Stamps.com 5lb. scale - eliminating the need of manually inserting the weight of your package.
 
 
 ![main screen](./docs/images/main.png?raw=true)
@@ -26,7 +24,7 @@ npm start
 ```
 
 # Developer Notes
-The purpose of this project was to try my hand at building an entire application from scratch using the Stamps.com API. This also came with the added intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Both those goals were reached, however, Postiġ is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I would like to see add/fix over time (display account information, add postage funds, logging print history, etc.), but my goal is to keep it nice and slender.
+The purpose of this project was to try my hand at building an entire application from scratch using the Stamps.com API. This also came with the added intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Both those goals were reached, however, Postiġ is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I would like to see add/fix over time (display account information, add postage funds, logging print history, etc.), but my goal is to keep it nice and slender. Incorporating Machine Learning libraries to determine/optimize time vs. cost patterns is in the works!
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
