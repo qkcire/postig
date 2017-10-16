@@ -25,7 +25,7 @@ npm start
 ```
 
 # Developer's Note
-The purpose of Postiġ was to try my hand at building an entire application from scratch using the Stamps.com API. This also came with the intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Both goals were achieved, however, this project is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I would like to add/fix over time (display account information, add postage funds, logging print history, etc.), but for the moment I would to like to keep it slim and slender. Lastly, plans to incorporate modern techniques such Machine Learning algorithms to determine/optimize certain user patterns are in the works so stay tuned!
+The purpose of Postiġ was to try my hand at building an entire application from scratch using the Stamps.com API. This also came with the intent of incorporating two of the most common USB devices found in the shipping workflow: a thermal printer and a scale. Both goals were achieved, however, this project is no where near "complete". There are plenty of wrinkles to be ironed out as well as features that I would like to add/fix over time (display account information, add postage funds, logging print history, etc.), but for the most part I would to like to keep it slim and slender. Lastly, plans to incorporate modern techniques such Machine Learning algorithms to determine and optimize certain user input/output patterns are in the works so stay tuned!
 
 # License
 [GPL 3.0](https://github.com/qkcire/postig/blob/master/LICENSE)
